@@ -1,0 +1,60 @@
+<mat-card class="example-card">
+
+  <img mat-card-image src="../assets/img/doctors/doctor.jpg" alt=" doctor photo">
+  <mat-card-content>
+    <div class="body">
+      <p class="text-xl" style="text-align: center;">
+        Dr. {{doctorVsInput.firstName}} {{doctorVsInput.lastName}}</p>
+      <p class="text-xl " style="text-align: center;"> {{doctorVsInput.speciality}}</p>
+      <form>
+
+        <fieldset>
+          <legend>
+            <mat-icon> contacts</mat-icon> <span style="font-size: large;">C</span>ontact
+          </legend>
+          <hr />
+
+          <p class="text-l ">
+            <mat-icon> location_on</mat-icon> <b>{{doctorVsInput.location}}</b> ,{{doctorVsInput.adress}}
+          </p>
+          <hr />
+
+          <p class="text-sm ">
+            <mat-icon> phone</mat-icon>
+            <b>+216</b> {{doctorVsInput.telephone}}
+          </p>
+          <hr />
+
+          <p class="text-sm ">
+            <mat-icon> email</mat-icon>
+            {{doctorVsInput.email}}
+          </p>
+          <hr />
+
+        </fieldset>
+
+      </form>
+      <form>
+        <fieldset>
+          <legend>
+            <mat-icon>portrait</mat-icon>Biographie and experience
+          </legend>
+
+          <span class="text-sm text-grey">{{doctorVsInput.about}}</span>
+        </fieldset>
+
+      </form>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="connectedUser.role =='Doctor' " mat-raised-button aria-label="Example icon button with a menu icon" style="  margin-left:37%;
+          " (click)="route2()">Edit
+      <mat-icon>settings</mat-icon>
+    </button>
+
+    <button *ngIf="connectedUser.role == 'User' || connectedUser=='' "  mat-raised-button aria-label="Example icon button with a menu icon" style="  margin-left: 23%;
+          " (click)="route1()">Make an apponitment
+      <mat-icon>book</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

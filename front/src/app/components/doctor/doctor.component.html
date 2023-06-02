@@ -1,0 +1,32 @@
+    <div class="card-doctor">
+      <div class="header">
+        <img src="../assets/img/doctors/doctor.jpg" alt="">
+        <div class="meta">
+          <a route><span class="mai-call"></span></a>
+          <a route><span class="mai-logo-whatsapp"></span></a>
+        </div>
+      </div>
+      <div class="body" style="text-align: center;">
+        <p class="text-l mb-0">Dr {{doctorInput.firstName}} {{doctorInput.lastName}}</p>
+        <span class="text-l text-grey">{{doctorInput.speciality}}</span> <br>
+        <p class="text-sm text-grey">{{doctorInput.location}}</p>
+        <p class="text-sm text-grey">{{doctorInput.adress}} </p>
+
+        
+        <ng-container >
+
+         <div class="row">
+        <button *ngIf="connectedUser.role == 'User' " mat-raised-button  aria-label="Example icon button with a menu icon"    (click)="route(doctorInput._id)">Make an apponitement
+        <mat-icon>book</mat-icon>
+      </button> 
+      <button mat-raised-button  aria-label="Example icon button with a menu icon"    (click)="profile(doctorInput._id)">
+        <mat-icon>visibility</mat-icon>
+      </button> 
+    </div>
+     
+
+    </ng-container>
+
+        
+      </div>
+    </div>

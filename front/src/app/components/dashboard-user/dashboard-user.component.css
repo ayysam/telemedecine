@@ -1,0 +1,9 @@
+td{
+background-color: rgb(242, 242, 242);
+}
+.table-success th, .table-success td, .table-success thead th, .table-success tbody + tbody {
+    border-color: #000000;
+}
+table{
+border: 1px; 
+}

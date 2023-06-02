@@ -1,0 +1,10 @@
+button {
+    background-color: #00d9a5;
+    margin-left: 1px;
+    color: whitesmoke;
+    margin: 5px;
+}
+.row{
+    display: inline-block;
+
+}

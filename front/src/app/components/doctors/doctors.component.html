@@ -1,0 +1,53 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+  <div class="banner-section">
+
+    <div class="container text-center wow fadeInUp">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+        </ol>
+      </nav>
+      <h1 class="font-weight-normal">Our Doctors</h1>
+    </div> <!-- .container -->
+  </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
+<form #filtreForm="ngForm" (ngSubmit)="search()">
+  <div class="page-section bg-light">
+    <div class="container">
+      <div>
+        <div class="row" style="padding-bottom: 10px;">
+          <select id="select1" class="form-control" style="width:17% ; float:right"  [(ngModel)]="filtre.governorate" [ngModelOptions]="{standalone:true}">
+            <option [ngValue]="null" disabled selected >Select governorate</option>
+            <option *ngFor="let gov of governorate" [ngValue]="gov.gov">{{gov.gov}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <select id="select2" class="form-control" style="width:17% ; float:right"  [(ngModel)]="filtre.speciality" [ngModelOptions]="{standalone:true}">
+            <option  [ngValue]="null" disabled>Select speciality</option>
+            <option *ngFor="let spec of speciality" [ngValue]="spec.spec">{{spec.spec}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <button mat-raised-button  aria-label="Example icon button with a menu icon"
+            >Search
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+        <div class="row justify-content-center">
+        </div>
+        <div class="col-lg-10">
+          <div class="row">
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn" *ngFor="let d of doctors">
+              <app-doctor [doctorInput]="d"></app-doctor>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .container -->
+  </div> <!-- .page-section -->
+</form>
+
+
+
+  <app-mobile></app-mobile>

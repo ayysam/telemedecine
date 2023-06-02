@@ -1,0 +1,86 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="banner-section">
+  
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item " aria-current="page"> <a routerLink="/dashboardDoctor">  Appointments</a> </li>
+            <li class="breadcrumb-item " aria-current="page"> <a routerLink="/userProfile/{{idUser}}">User profile</a> </li>
+            <li class="breadcrumb-item active" aria-current="page">Medical form</li>
+  
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal">{{user.firstName}}'s Medical form</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div> <!-- .page-banner -->
+  
+  <div class="page-section">
+    <div class="container">
+
+      <form class="needs-validation" #medForm="ngForm" (ngSubmit)="submit()" >
+
+  
+        <div class="form-row" style="margin-left: 38%;     ">
+  
+          <div class="container">
+            <div class="col-md-4 mb-3">
+              <label for="validationTooltip01">Height(in cm)</label>
+              <input type="number" class="form-control" id="validationTooltip01" placeholder="Height"  [(ngModel)]="form.height" [ngModelOptions]="{standalone:true}" disabled>
+            </div>
+  
+  
+            <div class="col-md-4 mb-3">
+              <label for="validationTooltip02">weight(in Kg)</label>
+              <input type="number" class="form-control" id="validationTooltip02" placeholder="weight"  [(ngModel)]="form.weight" [ngModelOptions]="{standalone:true}" disabled>
+            </div>
+  
+            <div class="col-md-4 mb-3">
+              <label for="">Sex</label>
+              <select class="form-control"  [(ngModel)]="form.sex" [ngModelOptions]="{standalone:true}" disabled>
+                <option selected disabled>M/F</option>
+                <option value="Male" >Male</option>
+                <option value="Female" >Female</option>
+              </select>
+  
+            
+            </div>
+  
+          </div>
+        </div>
+  
+        <hr style="border:1px outset;background-color:#4f4f4f;color:#9b9b9b;height:1px;width:80%; margin-left: 9%;" disabled />
+  
+  
+        <div class="form-row" style="margin-left: 11%; margin-top: 5%;">
+  
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill" style="max-width: 100%;">
+              <label for="textarea1">Quel est votre souci de santé ?</label>
+              <textarea id="textarea1" cols="47" rows="3" matInput placeholder="Ex. I feel..."  [(ngModel)]="form.obj1" [ngModelOptions]="{standalone:true}" disabled></textarea>
+            </mat-form-field>
+          </div>
+  
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <label for="textarea2">Taking Any Medications Currently? If yes please list it
+              </label>
+              <textarea id="textarea2" matInput placeholder="Tap here..."  [(ngModel)]="form.obj2" [ngModelOptions]="{standalone:true}" disabled></textarea>
+            </mat-form-field>
+          </div>
+  
+          <div sty class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <label for="textarea3">Avez-vous des antécédents personnels et familiaux ? Lesquels ?</label>
+              <textarea id="textarea3" matInput placeholder="Ex. No / Yes..."  [(ngModel)]="form.obj3" [ngModelOptions]="{standalone:true}" disabled></textarea>
+            </mat-form-field>
+          </div>
+  
+        </div>
+  
+      </form>
+    </div>
+  </div>
+ 
+  <app-mobile></app-mobile>

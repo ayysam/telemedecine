@@ -1,0 +1,96 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal">Edit Docotor</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div> <!-- .page-banner -->
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">Edit Profile</h1>
+      <form class="contact-form mt-5" (ngSubmit)="editFunction()" #EditForm="ngForm">
+        <div class="col-12 mb-3">
+          <div class="col-sm-10 py-2 wow fadeInLeft">
+            <input type="text" id="fullName" class="form-control" placeholder="First name.." [(ngModel)]="user.firstName" [ngModelOptions]="{standalone:true}">
+          </div>
+          
+          <div class="col-sm-10 py-2 wow fadeInLeft">
+            <input type="text" id="fullName" class="form-control" placeholder="Last name.." [(ngModel)]="user.lastName" [ngModelOptions]="{standalone:true}">
+          </div>
+         
+          <div class="col-sm-10 py-2 wow fadeInRight">
+            <input type="email" class="form-control"  placeholder="Email ..." [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}" />
+           
+          
+          </div>
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <input type="password" id="subject" class="form-control" placeholder="Enter Password.."
+            [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
+          </div>
+         
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <input type="password" id="subject" class="form-control" placeholder=" Confirm your password.."
+            [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
+           
+          </div>
+         
+          <div class="col-10 py-2 wow fadeInUp">
+            <input type="tel" id="subject" class="form-control" placeholder="Enter your phone number.."
+            [(ngModel)]="user.telephone" [ngModelOptions]="{standalone:true}">
+          </div>
+        
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <input type="text" id="adress" class="form-control" placeholder="Your adress" [(ngModel)]="user.adress" [ngModelOptions]="{standalone:true}">
+          </div>
+        
+  
+  
+  
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <label for="select1">governorate</label>
+            <select id="select1" class="form-control" [(ngModel)]="user.location" [ngModelOptions]="{standalone:true}">
+              <option [ngValue]="null" disabled>Select governorate</option>
+              <option *ngFor="let gov of governorate" [ngValue]="gov.gov">{{gov.gov}}</option>
+            </select>
+          </div>
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <label for="select2"> your speciality</label>
+            <select id="select2" class="form-control" [(ngModel)]="user.speciality" [ngModelOptions]="{standalone:true}">
+              <option [ngValue]="null" disabled>Select speciality</option>
+              <option *ngFor="let spec of speciality" [ngValue]="spec.spec">{{spec.spec}}</option>
+            </select>
+          </div>
+  
+          <div class="col-10 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <label for="date">Date of birth</label>
+            <input id="date" type="date" class="form-control" [(ngModel)]="user.dateOfBirth" [ngModelOptions]="{standalone:true}">
+          </div>
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <textarea  class="form-control"  placeholder="About you" cols="71" rows="3" minlength="15" maxlength="500"   [(ngModel)]="user.about" [ngModelOptions]="{standalone:true}"></textarea>
+          </div>
+  
+  
+  
+          <div class="col-10 py-2 wow fadeInUp">
+            <button type="submit" class="btn btn-primary wow zoomIn">Edit</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+
+ 
+
+ 

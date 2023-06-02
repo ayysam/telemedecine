@@ -1,0 +1,80 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+  <div class="banner-section">
+
+    <div class="container text-center wow fadeInUp">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="['/doctors']">Doctors</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+
+        </ol>
+      </nav>
+      <h1 class="text-center wow fadeInUp">Make an Appointment with D. {{doctor.firstName}}</h1>
+    </div> <!-- .container -->
+  </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
+<div class="page-section">
+  <h2 class="text-center wow fadeInUp">Appointment form</h2>
+
+  <div class="container">
+    <form class="main-form" #appointment="ngForm" (ngSubmit)="takeIt(date.value,time.value)">
+      <div class="row mt-5 ">
+        <div class="col-12  py-2 wow fadeInLeft">
+          <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName"
+            [ngModelOptions]="{standalone:true}" disabled>
+        </div>
+        <div class="col-12  py-2 wow fadeInRight">
+          <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName"
+            [ngModelOptions]="{standalone:true}" disabled>
+        </div>
+        <div class="col-12 c py-2 wow fadeInRight">
+          <input type="text" class="form-control" placeholder="Email address.." [(ngModel)]="user.email"
+            [ngModelOptions]="{standalone:true}" disabled>
+        </div>
+        <div class="col-12  py-2 wow fadeInUp" data-wow-delay="300ms">
+          <input type="text" class="form-control" placeholder="Number.." [(ngModel)]="user.telephone"
+            [ngModelOptions]="{standalone:true}" disabled>
+        </div>
+
+        <div style="margin: auto;" class="col-12 col-sm-4 py-2 wow fadeInLeft" data-wow-delay="300ms">
+          <label for="date">Select date <mat-icon>date_range</mat-icon></label>
+
+          <input #date type="date" id="date" class="form-control" [(ngModel)]="user.date"
+            [ngModelOptions]="{standalone:true}">
+        </div>
+
+        <div style="margin: auto;" class="col-12 col-sm-4 py-2 wow fadeInLeft" data-wow-delay="300ms">
+          <label for="hour">Select time <mat-icon>access_time</mat-icon></label>
+          <select #time style="height: 59%;" id="hour" class="form-control" [(ngModel)]="user.hour" [ngModelOptions]="{standalone:true}">
+            <option [ngValue]="null" disabled selected>Select time</option>
+            <option  *ngFor="let h of hour" [ngValue]="h.value">{{h.value}}</option>
+          </select>
+        </div>
+     
+      </div>
+
+      <div class=" wow fadeInLeft" *ngIf="trTime == false && trDate!=false">
+        <p style="color: red;"> <mat-icon >warning</mat-icon> Select time </p>
+      </div> 
+
+      <div class=" wow fadeInLeft" *ngIf="trDate == false && trTime!=false">
+        <p style="color: red;"> <mat-icon >warning</mat-icon> Select date </p>
+      </div>  
+      
+      <div class=" wow fadeInLeft" *ngIf="trDate == false && trTime==false">
+        <p style="color: red;"> <mat-icon >warning</mat-icon> Select date and time </p>
+      </div> 
+
+
+      <div class=" wow fadeInLeft" *ngIf="trAppo == false">
+        <p style="color: red;"> <mat-icon >warning</mat-icon> Appointment not availabale </p>
+      </div>
+      
+     
+      <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit Request</button>
+
+
+    </form>
+  </div>
+</div> <!-- .page-section -->

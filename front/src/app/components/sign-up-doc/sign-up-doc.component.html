@@ -1,0 +1,122 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+  <div class="banner-section">
+    <div class="container text-center wow fadeInUp">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li *ngIf="!connectedUser" class="breadcrumb-item active" aria-current="page">Hello Doctor</li>
+          <li *ngIf="connectedUser" class="breadcrumb-item active" aria-current="page">Add doctor</li>
+        </ol>
+      </nav>
+      <h1 *ngIf="!connectedUser" class="font-weight-normal">Signu-up Doctor</h1>
+      <h1 *ngIf="connectedUser" class="font-weight-normal">Add doctor</h1>
+    </div> <!-- .container -->
+  </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
+
+<div class="page-section">
+  <div class="container">
+    <h1 *ngIf="!connectedUser" class="text-center wow fadeInUp">Sign-up form</h1>
+    <h1 *ngIf="connectedUser" class="text-center wow fadeInUp">Add doctor form</h1>
+    <form class="contact-form mt-5" [formGroup]="signupForm">
+      <div class="col-12 mb-3">
+        <div class="col-sm-10 py-2 wow fadeInLeft">
+          <input type="text" id="fullName" class="form-control" placeholder="First name.." formControlName="firstName">
+        </div>
+        <div
+          *ngIf="(signupForm.controls['firstName'].invalid && ( signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty))">
+
+          <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger"> First name must have at
+            least 3 characters </div>
+          <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger">First name is required</div>
+        </div>
+        <div class="col-sm-10 py-2 wow fadeInLeft">
+          <input type="text" id="fullName" class="form-control" placeholder="Last name.." formControlName="lastName">
+        </div>
+        <div
+          *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+
+
+          <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="text-danger"> Last name must have at
+            least 3 characters </div>
+          <div *ngIf="signupForm.controls['lastName'].errors.required" class="text-danger">Last name is required</div>
+
+
+        </div>
+        <div class="col-sm-10 py-2 wow fadeInRight">
+          <input type="email" class="form-control" formControlName="email" placeholder="Email ..." />
+          <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="text-danger">
+            Invalid email
+          </div>
+          <div *ngIf="signupForm.get('email').errors.required && signupForm.get('email').touched" class="text-danger">
+            Email is required</div>
+
+        </div>
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <input type="password" id="subject" class="form-control" placeholder="Enter Password.."
+            formControlName="password">
+        </div>
+        <div *ngIf="signupForm.get('password').errors.required && signupForm.get('password').touched"
+          class="text-danger">Password required</div>
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <input type="password" id="subject" class="form-control" placeholder=" Confirm your password.."
+            formControlName="confirmPassword">
+          <span style="color: red;" *ngIf="signupForm.errors?.invalid">
+            Password doesn't match
+          </span>
+        </div>
+        <div *ngIf="signupForm.get('confirmPassword').errors.required && signupForm.get('confirmPassword').touched"
+          class="text-danger">Confirm password required</div>
+        <div class="col-10 py-2 wow fadeInUp">
+          <input type="tel" id="subject" class="form-control" placeholder="Enter your phone number.."
+            formControlName="tel">
+        </div>
+        <div *ngIf="signupForm.get('tel').errors.required && signupForm.get('tel').touched" class="text-danger">Phone
+          number required</div>
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <input type="text" id="adress" class="form-control" placeholder="Your adress" formControlName="adress">
+        </div>
+      
+
+
+
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <label for="select1">governorate</label>
+          <select id="select1" class="form-control" formControlName="location">
+            <option [ngValue]="null" disabled>Select governorate</option>
+            <option *ngFor="let gov of governorate" [ngValue]="gov.gov">{{gov.gov}}</option>
+          </select>
+        </div>
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <label for="select2"> your speciality</label>
+          <select id="select2" class="form-control" formControlName="speciality">
+            <option [ngValue]="null" disabled>Select speciality</option>
+            <option *ngFor="let spec of speciality" [ngValue]="spec.spec">{{spec.spec}}</option>
+          </select>
+        </div>
+
+        <div class="col-10 py-2 wow fadeInUp" data-wow-delay="300ms">
+          <label for="date">Date of birth</label>
+          <input id="date" type="date" class="form-control" formControlName="dateOfBirth">
+        </div>
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <textarea  class="form-control"  placeholder="About you" cols="71" rows="3" minlength="9" maxlength="500"   formControlName="about"></textarea>
+        </div>
+
+
+
+        <div class="col-10 py-2 wow fadeInUp">
+          <button type="submit" class="btn btn-primary wow zoomIn" (click)="signup(signupForm.value)">Sign up</button>
+          <a *ngIf="!connectedUser" style="margin-left: 10px" routerLink="/login">Already have an account? </a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

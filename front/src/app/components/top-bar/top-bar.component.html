@@ -1,0 +1,29 @@
+<div class="topbar">
+  <script src="https://kit.fontawesome.com/39b310315c.js" crossorigin="anonymous"></script>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 text-sm">
+        <div *ngIf="!connectedUser" class="site-info">
+          <a>Are you a doctor? JoinUs</a>
+          <span class="divider">|</span>
+          <a routerLink="signUpDoc">Register here</a>
+        </div>
+        <ng-container  *ngIf="connectedUser">
+        <div *ngIf="connectedUser.role == 'Admin'" class="site-info">
+          <a routerLink="signUpDoc">Add doctor</a>
+          <span class="divider">|</span>
+          <a routerLink="signUp">Add user</a>
+        </div>
+      </ng-container>
+      </div>
+      <div class="col-sm-4 text-right text-sm">
+        <div class="social-mini-button">
+          <a href=""><span class="mai-logo-facebook-f"></span></a>
+          <a href=""><span class="mai-logo-twitter"></span></a>
+          <a href=""><span class="mai-logo-dribbble"></span></a>
+          <a href=""><span class="mai-logo-instagram"></span></a>
+        </div>
+      </div>
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+</div> <!-- .topbar -->

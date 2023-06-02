@@ -1,0 +1,46 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+  <div class="banner-section">
+    <div class="container text-center wow fadeInUp">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+          <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Hello Doctor</li>
+        </ol>
+      </nav>
+      <h1 class="font-weight-normal">Dashboard Admin</h1>
+    </div> <!-- .container -->
+  </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
+
+<div class="dashboard-user" style="padding: 100px  0px;">
+  <div class="container">
+    <nav>
+      <div class="nav nav-tabs " id="nav-tab" role="tablist">
+        <a class="nav-link active " id="nav-home-tab" data-toggle="tab" href="#users" role="tab"
+          aria-controls="nav-home" aria-selected="true">users</a>
+        <a class="nav-link" id="nav-profile-tab " data-toggle="tab" href="#doctors" role="tab"
+          aria-controls="nav-profile" aria-selected="false">doctors</a>
+        <a class="nav-link" id="nav-contact-tab " data-toggle="tab" href="#appointment" role="tab"
+          aria-controls="nav-contact" aria-selected="false">appointment</a>
+      </div>
+    </nav>
+    <div class="tab-content " id="nav-tabContent">
+      <div class="tab-pane fade show active  " id="users" role="tabpanel" aria-labelledby="nav-home-tab">
+        <!-- usertable -->
+        <app-table></app-table>
+                <!-- usertable -->
+
+      </div>
+      <div class="tab-pane fade " id="doctors" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <!-- doctorTbale -->
+        <app-table-doctors></app-table-doctors>  
+                      <!-- doctorTbale -->
+
+      </div>
+      <div class="tab-pane fade" id="appointment" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <app-table-appointments></app-table-appointments>
+      </div>
+    </div>
+  </div>
+</div>
+

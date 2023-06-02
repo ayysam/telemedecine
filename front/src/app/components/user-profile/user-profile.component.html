@@ -1,0 +1,72 @@
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+  <div class="banner-section">
+
+    <div class="container text-center wow fadeInUp">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li *ngIf="doctor.role=='Doctor'" class="breadcrumb-item " aria-current="page"> <a routerLink="/dashboardDoctor"> Appointments</a> </li>
+          <li class="breadcrumb-item " aria-current="page">Profile</li>
+
+        </ol>
+      </nav>
+      <h1 class="font-weight-normal">User profile</h1>
+    </div> <!-- .container -->
+  </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
+<mat-card class="example-card">
+
+  <img mat-card-image src="../assets/img/person/user.png" alt=" doctor photo">
+  <mat-card-content>
+    <div class="body">
+      <p style="text-align:center" class="text-xl ">{{user.firstName}} {{user.lastName}}</p>
+      <form>
+
+        <fieldset>
+          <legend>
+            <mat-icon> contacts</mat-icon> <span style="font-size: large;">G</span>eneral information
+          </legend>
+          
+          <p style="font-weight: bold;"  class="text-sm">Age</p>
+          <p class="text-sm ">
+            <mat-icon>date_range</mat-icon>
+
+            {{user.age}}
+          </p>
+          <hr />
+          <p style="font-weight: bold;" class="text-sm">Phone</p>
+          <p  class="text-sm ">
+            <mat-icon> phone</mat-icon>
+            <b>+216</b> {{user.telephone}}
+          </p>
+          <hr />
+          <p style="font-weight: bold;"  class="text-sm">Email</p>
+
+          <p class="text-sm ">
+            <mat-icon> email</mat-icon>
+            {{user.email}}
+          </p>
+          <hr />
+
+        </fieldset>
+
+      </form>
+
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="doctor.role == 'Doctor' " mat-raised-button aria-label="Example icon button with a menu icon" style="  margin-left: 30%
+          " (click)="route1()">Medical Form
+      <mat-icon>book</mat-icon>
+    </button>
+
+    <button *ngIf="doctor.role == 'User' " mat-raised-button aria-label="Example icon button with a menu icon" style="  margin-left: 33%
+          " (click)="route2()">Edit Profile
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-card-actions>
+
+</mat-card>
+
+
+<!-- <app-mobile></app-mobile> -->
